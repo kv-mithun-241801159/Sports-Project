@@ -1,0 +1,157 @@
+/* ══════════════════════════════════════════
+   pages.css
+   Page-specific layouts:
+   hero banner, teams grid, brackets,
+   schedule placeholder, settings
+   ══════════════════════════════════════════ */
+
+/* ── Page switching ── */
+.page        { display: none; }
+.page.active { display: block; }
+
+/* ── Hero banner ── */
+.hero-banner {
+  background: linear-gradient(135deg, var(--surface2) 0%, rgba(245,166,35,0.08) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-banner::before {
+  content: '⚽';
+  position: absolute;
+  right: 180px;
+  font-size: 100px;
+  opacity: 0.04;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.hero-title        { font-family: var(--font-display); font-size: 28px; letter-spacing: 2px; line-height: 1.1; }
+.hero-title span   { color: var(--accent); }
+.hero-desc         { font-size: 13px; color: var(--muted); margin-top: 6px; max-width: 320px; }
+.hero-actions      { display: flex; gap: 10px; margin-top: 16px; }
+.hero-right        { display: flex; gap: 24px; flex-shrink: 0; }
+.hero-stat         { text-align: center; }
+.hero-stat-val     { font-family: var(--font-display); font-size: 32px; letter-spacing: 1px; color: var(--accent); }
+.hero-stat-lbl     { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-family: var(--font-mono); }
+
+/* ── Teams grid ── */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px;
+}
+
+.team-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  text-align: center;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.team-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.team-logo       { font-size: 36px; margin-bottom: 10px; }
+.team-name       { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.team-sport      { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+
+.team-stats {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.team-stat       { text-align: center; }
+.team-stat-val   { font-family: var(--font-mono); font-size: 14px; font-weight: 700; }
+.team-stat-val.win  { color: var(--green); }
+.team-stat-val.draw { color: var(--muted); }
+.team-stat-val.loss { color: var(--red); }
+.team-stat-lbl   { font-size: 10px; color: var(--muted); }
+
+/* ── Bracket ── */
+.bracket { padding: 16px 20px; }
+
+.bracket-round       { margin-bottom: 24px; }
+.bracket-round-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  margin-bottom: 10px;
+}
+
+.bracket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.bracket-final { max-width: 260px; }
+
+.bracket-match {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.bracket-match.highlight { border-color: var(--accent); }
+
+.bracket-team {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background var(--transition);
+}
+
+.bracket-team:hover                  { background: rgba(255,255,255,0.04); }
+.bracket-team:first-child            { border-bottom: 1px solid var(--border); }
+.bracket-team.winner                 { color: var(--accent); font-weight: 700; }
+.bracket-team.muted                  { color: var(--muted); }
+
+.bracket-score       { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--accent); }
+.bracket-score.loser { color: var(--muted); }
+
+/* ── Schedule placeholder ── */
+.schedule-placeholder {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 2;
+}
+
+.schedule-dates { color: var(--accent); }
+
+/* ── Settings ── */
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 24px;
+}
+
+.settings-save {
+  padding: 0 24px 24px;
+}
